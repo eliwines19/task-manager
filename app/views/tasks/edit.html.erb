@@ -1,0 +1,21 @@
+<h1>Edit Task</h1>
+
+<%= render partial: "layouts/errors", locals: {object: @task} %>
+
+<%= form_for(@task) do |f|%>
+
+  <%= f.label :project %>
+  <%= f.collection_select :project_id, Project.all, :id, :title %>
+
+  <%= f.label :name, "Task Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description, "Description of the Task" %>
+  <%= f.text_area :description %>
+
+  <%= f.label :due_by, "When is the task due?" %>
+  <%= f.date_field :due_by %>
+
+  <%= f.submit "Create Task" %>
+
+<% end %>

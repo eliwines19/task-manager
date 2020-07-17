@@ -1,0 +1,8 @@
+  
+<h2><%= @task.description%> - <%= @task.user.name%></h2>
+
+<% if @task.user == current_user %>
+  <%= link_to "Edit Task", edit_task_path(@task)%>
+<% end %>
+
+<h4>See the full Project Here: <%= link_to @task.project.title, project_path(@task.project_id) %></h4>

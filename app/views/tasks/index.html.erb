@@ -1,0 +1,11 @@
+<% if @project %>
+  <h1>Tasks for <%= @project.title%></h1>
+<% else %>
+  <h1>All Tasks</h1>
+<% end %>
+
+<ul>
+<% @tasks.each do |t|%>
+  <li><%= t.user.name%> created the task <%=t.name%> for this project: <strong><%= link_to t.project.title, project_path(t.project_id) %></strong></li>
+<% end %>
+</ul>
