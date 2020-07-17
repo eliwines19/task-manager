@@ -1,0 +1,6 @@
+<h1>Welcome <%=@user.username %></h1>
+
+
+<%= display_projects %>
+
+<%= render partial: "projects/projects", locals: {projects: @user.projects} %>

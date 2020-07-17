@@ -1,0 +1,23 @@
+<h1>Sign Up</h1>
+
+<%= render partial: "layouts/errors", locals: {object: @user} %>
+
+
+<%= form_for(@user, url:'/signup') do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+   <br>
+  <%= f.label :email %>
+  <%= f.email_field :email, required:true%>
+  <br>
+   <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+   <br>
+    <br>
+
+  <%= f.submit "Create Account" %>
+
+<% end %>
