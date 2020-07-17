@@ -1,0 +1,18 @@
+<h1>Edit <%= @post.title%>!</h1>
+
+<%= render partial: "layouts/errors", locals: {object: @project} %>
+
+<%= form_for(@post) do |f|%>
+
+  <%= f.label :title, "Project Title" %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :description, "Description of the Project" %>
+  <%= f.text_area :description %>
+  <br>
+  <%= f.label :due_date, "When is the Project Due?" %>
+  <%= f.date_field :due_date%>
+
+  <%= f.submit "Edit Project"%>
+
+<% end %>
