@@ -39,13 +39,17 @@ class ProjectsController < ApplicationController
       end
     end
   
-  
-  
     def show
       @project = Project.find_by_id(params[:id])
       redirect_to projects_path if !@project
     end
-  
+
+    def destroy
+      @project = Project.find(params[:id])
+      @project.destroy
+    
+      redirect_to projects_path
+    end
   
     private
   

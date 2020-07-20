@@ -1,14 +1,31 @@
 <h1>My Projects</h1>
 
-<% @projects.each do |p|%>
-    <h1><%=p.title%></h1>
-    <h2><%=p.description%></h2>
-    <h3>Tasks:</h3>
-        <% p.tasks.each do |t|%>
-            <ul>
-                <li>Task Name: <%=t.name%><br> Task Description: <%=t.description%><br> Task Due By: <%=t.due_by.strftime("%m/%d/%Y")%></li>
-            </ul>
+<% if @projects.blank? %>
+
+    <h1>You don't have any projects yet</h1>
+
+<% else %>
+
+    <% @projects.each do |p|%>
+        <h1><%= link_to p.title, project_path(p) %><h1>
+        <h2>Project Description: <%=p.description%></h2>
+
+        <% if p.tasks.blank? %>
+
+            <h3>No Tasks yet..</h3>
+
+        <% else %>
+
+            <h3>Tasks:</h3>
+                <% p.tasks.each do |t|%>
+                    <ul>
+                        <li>Task Name: <%=t.name%><br> Task Description: <%=t.description%><br> Task Due By: <%=t.due_by.strftime("%m/%d/%Y")%></li>
+                    </ul>
+                <% end %>
+
         <% end %>
+    <% end %>
+
 <% end %>
 
 

@@ -7,7 +7,13 @@
 <ul>
 <% @tasks.each do |t|%>
   <li>
-    Task: <%= t.name %> <br> Goal: <%= t.description %> <br> Due: <%= t.due_by.strftime("%m/%d/%Y")%> <br> Project: <strong><%= link_to t.project.title, project_path(t.project_id) %></strong>
+    Task: <%= t.name %> <br>
+    Goal: <%= t.description %> <br>
+    Due: <%= t.due_by.strftime("%m/%d/%Y")%> <br>
+    Project: <strong><%= link_to t.project.title, project_path(t.project_id) %></strong> <br>
+    <% if t.user == current_user %>
+      <%= link_to "Edit Task", edit_task_path(t)%>
+    <% end %>
   </li>
   <br>
 <% end %>
