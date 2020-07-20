@@ -1,5 +1,6 @@
 <ul>
     <% projects.each do |p|%>
-      <li><%= link_to p.title, project_path(p) %> - <%= p.description%> </li>
+      <li><%= link_to p.title, project_path(p) %> <br> <%= p.description%> </li><br>
     <% end %>
 </ul>
+

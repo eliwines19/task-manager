@@ -1,5 +1,9 @@
   
-<h2><%= @task.description%> - <%= @task.user.name%></h2>
+<h1>Name of Task: <%= @task.name %></h1>
+<h2>Description: <br><%= @task.description%></h2>
+<h2>Due By: <%= @task.due_by.strftime("%m/%d/%Y")%> </h2> 
+<h3>Task Creator: <br><%= @task.user.name%></h3>
+
 
 <% if @task.user == current_user %>
   <%= link_to "Edit Task", edit_task_path(@task)%>

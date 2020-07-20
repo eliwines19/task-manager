@@ -16,7 +16,7 @@
 <% else %>
     <%= f.hidden_field :project_id %>
 <% end %>
-
+    <br><br>
     <%= f.label :name, "Name of task" %><br>
     <%= f.text_field :name %>
     <br><br>
@@ -26,6 +26,6 @@
     <%= f.label :due_by, "When is the Task Due?" %><br>
     <%= f.date_field :due_by %>
     <br><br>
-    <%= f.submit %>
+    <%= f.submit "Create Task"%>
 
 <% end %>

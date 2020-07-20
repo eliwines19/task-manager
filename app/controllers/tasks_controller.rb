@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_comment, only: [:show, :edit, :update]
+    before_action :set_task, only: [:show, :edit, :update]
     before_action :redirect_if_not_task_creator, only: [:edit, :update]
  
    def index
