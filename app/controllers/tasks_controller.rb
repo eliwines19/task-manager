@@ -4,7 +4,7 @@ class TasksController < ApplicationController
     before_action :redirect_if_not_task_creator, only: [:edit, :update]
  
    def index
-     if params[:project_id] && @project = Project.find_by_id(params[:post_id])
+     if params[:project_id] && @project = Project.find_by_id(params[:project_id])
         @tasks = @project.tasks
      else
        @error = "That project doesn't exist" if params[:project_id]

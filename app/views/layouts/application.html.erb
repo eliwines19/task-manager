@@ -2,12 +2,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MyBlog</title>
+    <title>Task Manager</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -23,17 +22,10 @@
 
       <% else %>
       <%=link_to "Sign Up", signup_path %> |
-      <%=link_to "Log In", login_path %>
+      <%=link_to "Log In", login_path %> |
+      <%= link_to "Log In With Google", '/auth/google_oauth2'%>
       <% end %>
 
-    </div>
-
-    <div>
-      <% if flash[:message] %>
-          <%= flash[:message]%>
-
-      <% end %>
-      <%= @error%>
     </div>
     <%= yield %>
   </body>

@@ -6,6 +6,10 @@
 
 <ul>
 <% @tasks.each do |t|%>
-  <li><%= t.user.name%> created the task <%=t.name%> for this project: <strong><%= link_to t.project.title, project_path(t.project_id) %></strong></li>
+  <li>
+    Task: <%= t.name %> <br> Goal: <%= t.description %> <br> Due: <%= t.due_by.strftime("%m/%d/%Y")%> <br> Project: <strong><%= link_to t.project.title, project_path(t.project_id) %></strong>
+  </li>
+  <br>
 <% end %>
 </ul>
+

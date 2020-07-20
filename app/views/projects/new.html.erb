@@ -7,15 +7,15 @@
 
 <%= form_for(@project) do |f|%>
 
-    <%= f.label :title, "Project Title" %>
+    <%= f.label :title, "Project Title" %><br>
     <%= f.text_field :title %>
-    <br>
-    <%= f.label :description, "Description of the Project" %>
+    <br><br>
+    <%= f.label :description, "Description of the Project" %><br>
     <%= f.text_area :description %>
-    <br>
-    <%= f.label :due_date, "When is the Project Due?" %>
+    <br><br>
+    <%= f.label :due_date, "When is the Project Due?" %><br>
     <%= f.date_field :due_date %>
-
-    <%= f.submit, "Create Project" %>
+    <br><br>
+    <%= f.submit "Create Project" %>
 
 <% end %>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
 
   #logout route
-  delete '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
 
   #omniauth callback route
   get "/auth/:provider/callback" => 'sessions#google'
