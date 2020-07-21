@@ -16,23 +16,4 @@ class SessionsController < ApplicationController
       redirect_to root_path
     end
 
-    def google
-            #find_or_create a user using the attributes auth
-    @user = User.find_or_create_by(email: auth["info"]["email"]) do |user|
-        user.username = auth["info"]["first_name"]
-        user.password = SecureRandom.hex(10)
-    end
-      if @user.save
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
-      else
-        redirect_to '/'
-      end
-    end
-
-    private 
-
-    def auth 
-        request.env['omniauth.auth']
-    end
 end
