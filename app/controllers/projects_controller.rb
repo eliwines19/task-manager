@@ -51,7 +51,6 @@ class ProjectsController < ApplicationController
     end
 
     def most_tasks
-      binding.pry
       @project = Project.most_tasks
     end
   

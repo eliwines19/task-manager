@@ -12,17 +12,13 @@
 
         <% p.tasks.each do |t|%>
             <h3>Tasks:</h3>
-                <ul>
-                    <li>
-                        Task Name: <%=t.name%>
-                        <br>
-                        Task Description: <%=t.description%>
-                        <br>
-                        Task Due By: <%=t.due_by.strftime("%m/%d/%Y")%>
-                        <br>
-                        <%= link_to 'View Task', task_path(t)%>
-                    </li>
-                </ul>
+                Task Name: <%=t.name%>
+                <br>
+                Task Description: <%=t.description%>
+                <br>
+                Task Due By: <%=t.due_by.strftime("%m/%d/%Y")%>
+                <br>
+                <%= link_to 'View Task', task_path(t)%>
         <% end %>
     <% end %>
 

@@ -10,13 +10,12 @@
 
 <%= form_for([@task.project,@task]) do |f|%>
 
-    <% if !!@task.project %>
+    <% if !@task.project %>
         <%= f.label :project %>
         <%= f.collection_select :project_id, Project.all, :id, :title %>
     <% else %>
-        <p>There must first be a project before you can create a task</p>
-        <%= link_to 'Create Project', new_project_path%>
         <%= f.hidden_field :project_id %>
+    <% end %>
         <br><br>
         <%= f.label :name, "Name of task" %><br>
         <%= f.text_field :name %>
@@ -28,6 +27,5 @@
         <%= f.date_field :due_by %>
         <br><br>
         <%= f.submit "Create Task"%>
-    <% end %>
 
 <% end %>
