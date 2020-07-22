@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "sessions#home"
 
   get '/users/projects' => 'users#projects'
+  get '/users/most_tasks' => 'projects#most_tasks'
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'

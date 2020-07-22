@@ -6,4 +6,6 @@ class Project < ApplicationRecord
     validates :title, presence: true 
     validates :description, presence: true 
     validates :due_date, presence: true 
+
+    scope :alpha { order(:title) }
 end

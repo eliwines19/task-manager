@@ -12,12 +12,13 @@
 
     <div>
       <% if logged_in?%>
-        <a><%= link_to "Add Project", new_project_path %></a> |
-        <a><%= link_to "All Projects", projects_path %></a> |
-        <a><%= link_to "My Projects", users_projects_path %></a> |
-        <a><%= link_to "Add a Task", new_task_path %></a> |
-        <a><%= link_to "Home", user_path(current_user)%></a> |
-        <a><%= link_to "Logout", logout_path, method:"delete"%></a>
+        <%= link_to "Add Project", new_project_path %> |
+        <%= link_to "All Projects", projects_path %> |
+        <%= link_to "My Projects", users_projects_path %> |
+        <%= link_to "Most Tasks", users_most_tasks_path %> |
+        <%= link_to "Add a Task", new_task_path %> |
+        <%= link_to "Home", user_path(current_user)%> |
+        <%= link_to "Logout", logout_path, method:"delete"%>
 
       <% else %>
         <a><%=link_to "Sign Up", signup_path %></a> |

@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     end
   
     def index
-      @projects = Project.all
+      @projects = Project.alpha
     end
   
   
@@ -48,6 +48,11 @@ class ProjectsController < ApplicationController
       @project.destroy
     
       redirect_to projects_path
+    end
+
+    def most_tasks
+      binding.pry
+      @project = Project.most_tasks
     end
   
     private
