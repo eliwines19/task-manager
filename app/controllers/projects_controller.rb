@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     end
   
     def index
-        @projects = Project.all
+      @projects = Project.all
     end
   
   
@@ -23,15 +23,14 @@ class ProjectsController < ApplicationController
       end
     end
   
-  
     def edit
       @project = Project.find_by_id(params[:id])
       redirect_to projects_path if !@project || @project.user != current_user
     end
   
     def update
-       @project = Project.find_by(id: params[:id])
-       redirect_to projects_path if !@project || @project.user != current_user
+      @project = Project.find_by(id: params[:id])
+      redirect_to projects_path if !@project || @project.user != current_user
       if @project.update(project_params)
         redirect_to project_path(@project)
       else

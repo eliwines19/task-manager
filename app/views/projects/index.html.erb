@@ -2,9 +2,10 @@
 
 <% if @projects.blank? %>
 
-    <h2>No projects yet. Create a project <%= link_to "here", new_project_path%></h2>
+  <h2>No projects yet. Create a project <%= link_to "here", new_project_path%></h2>
 
 <% else %>
+
   <%= render partial: "projects", locals: {projects: @projects} %>
 
 <% end %>

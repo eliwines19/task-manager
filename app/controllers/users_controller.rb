@@ -10,9 +10,9 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             #redirect to the show page
             redirect_to @user
-          else
+        else
             render :new
-          end
+        end
     end
 
     def show 
@@ -29,4 +29,5 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :email, :password)
     end
+    
 end
