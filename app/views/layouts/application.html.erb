@@ -6,26 +6,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style=" background-color:#ddd; padding:10px; text-align:center; ">
 
     <div>
       <% if logged_in?%>
-      <%= link_to "Add Project", new_project_path %> |
-      <%= link_to "All Projects", projects_path %> |
-      <%= link_to "My Projects", users_projects_path %> |
-      <%= link_to "Add a Task", new_task_path %> |
-      <%= link_to "Home", user_path(current_user)%> |
-      <%= link_to "Logout", logout_path, method:"delete"%>
+        <a><%= link_to "Add Project", new_project_path %></a> |
+        <a><%= link_to "All Projects", projects_path %></a> |
+        <a><%= link_to "My Projects", users_projects_path %></a> |
+        <a><%= link_to "Add a Task", new_task_path %></a> |
+        <a><%= link_to "Home", user_path(current_user)%></a> |
+        <a><%= link_to "Logout", logout_path, method:"delete"%></a>
 
       <% else %>
-      <%=link_to "Sign Up", signup_path %> |
-      <%=link_to "Log In", login_path %> |
-      <%= link_to "Log In With Google", '/auth/google_oauth2'%>
+        <a><%=link_to "Sign Up", signup_path %></a> |
+        <a><%=link_to "Log In", login_path %></a> |
+        <a><%= link_to "Log In With Google", '/auth/google_oauth2'%></a>
       <% end %>
-
     </div>
     <%= yield %>
   </body>

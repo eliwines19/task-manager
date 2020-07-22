@@ -1,2 +1,8 @@
-<h1>Welcome to TaskManager</h1>
+<h1>Welcome to TaskManager <%=@user.name if @user%></h1>
+
+<%= display_projects if @user%>
+
+<%= render partial: "projects/projects", locals: {projects: @user.projects} if @user%>
+
+
 

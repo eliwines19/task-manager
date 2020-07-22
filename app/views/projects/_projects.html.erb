@@ -1,13 +1,16 @@
 <% projects.each do |p|%>
 
-  <h2><%=p.title%></h2>
+  <h1><%=p.title%></h1>
 
   <div>
-    <%=p.description%>
-    <br>
-    Due Date: <%=p.due_date.strftime("%m/%d/%Y")%>
-    <br>
-    <%=link_to "Click here to view the project", project_path(p)%>
+    <h4>
+      <%=p.description%>
+      <br>
+      Due Date: <%=p.due_date.strftime("%m/%d/%Y")%>
+      <br>
+      <%=link_to "Click here to view the project", project_path(p)%>
+    </h4>
   </div>
 
 <% end %>
+
