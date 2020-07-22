@@ -57,4 +57,4 @@ gem 'pry'
 
 gem 'omniauth'
 gem 'dotenv-rails'
-gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'

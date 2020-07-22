@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
 
   #omniauth callback route
-
+  get "/auth/google_oauth2/callback" => 'sessions#google'
 
   resources :projects do
     resources :tasks
