@@ -11,7 +11,7 @@
 
     <h4><u>Goal:</u> <%= t.description %></h4> 
 
-    <h4><u>Due:</u> <%= t.due_by.strftime("%m/%d/%Y")%></h4> 
+    <h4><u>Due:</u> <%= pretty_date(t.due_by)%></h4> 
 
     <h4>Project: <strong><%= link_to t.project.title, project_path(t.project_id) %></strong> </h4>
 

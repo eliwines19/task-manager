@@ -11,7 +11,7 @@
 
 <div>
     <strong>Project Due Date:</strong><br>
-    <%=@project.due_date.strftime("%m/%d/%Y")%>
+    <%=pretty_date(@project.due_date)%>
 </div>
 
 <% if @project.user == current_user %>
