@@ -15,6 +15,7 @@
         <%= f.collection_select :project_id, Project.all, :id, :title %>
     <% else %>
         <%= f.hidden_field :project_id %>
+        Project Due Date: <%= @task.project.due_date.strftime("%m/%d/%Y")%>
     <% end %>
         <br><br>
         <%= f.label :name, "Name of task" %><br>

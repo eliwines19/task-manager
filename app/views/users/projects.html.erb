@@ -6,21 +6,7 @@
 
 <% else %>
 
-    <% @projects.each do |p|%>
-        <h1><%= link_to p.title, project_path(p) %><h1>
-        <h2>Project Description: <%=p.description%></h2>
-
-        <% p.tasks.each do |t|%>
-            <h3>Tasks:</h3>
-                Task Name: <%=t.name%>
-                <br>
-                Task Description: <%=t.description%>
-                <br>
-                Task Due By: <%=t.due_by.strftime("%m/%d/%Y")%>
-                <br>
-                <%= link_to 'View Task', task_path(t)%>
-        <% end %>
-    <% end %>
+    <%= render partial: "projects/projects", locals: {projects: @projects} %>
 
 <% end %>
 

@@ -9,6 +9,6 @@ class Project < ApplicationRecord
     validates :due_date, presence: true 
 
     scope :alpha, -> { order(:title) }
-    scope :most_tasks, -> { left_joins(:tasks).group('projects.id').order('count(tasks.project_id) desc limit 1') }
+    scope :most_tasks, -> { left_joins(:tasks).group('projects.id').order('count(tasks.project_id) desc') }
 
 end

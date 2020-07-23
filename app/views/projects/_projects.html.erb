@@ -1,14 +1,16 @@
 <% projects.each do |p|%> 
 
-<h1><%=p.title%></h1>
+<div>
+    <h1><%=p.title%></h1>
 
-    <h4><u>Goal:</u> <%= p.description %></h4> 
+        <h4><u>Goal:</u> <%= p.description %></h4> 
 
-    <h4><u>Due:</u> <%= p.due_date.strftime("%m/%d/%Y")%></h4> 
+        <h4><u>Due:</u> <%= p.due_date.strftime("%m/%d/%Y")%></h4> 
 
-    <h4><u>Tasks:</u> <%= p.tasks.size %></h4>
+        <h4><u>Tasks:</u> <%= p.tasks.size %></h4>
 
-    <%=link_to "Click here to view the project", project_path(p)%>
+        <%=link_to "Click here to view the project", project_path(p)%>
 
-<% end %>
+    <% end %>
+</div>
 
