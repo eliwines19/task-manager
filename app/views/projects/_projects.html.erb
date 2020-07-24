@@ -7,21 +7,21 @@
 
 <% else %>
 
-<% projects.each do |p|%> 
+    <% projects.each do |p|%> 
 
-    <div>
-        <h1><%=p.title%></h1>
+        <div>
+            <h1><%=p.title%></h1>
 
-            <h4><u>Goal:</u> <%= p.description %></h4> 
+                <h4><u>Goal:</u> <%= p.description %></h4> 
 
-            <h4><u>Due:</u> <%= pretty_date(p.due_date)%></h4> 
+                <h4><u>Due:</u> <%= pretty_date(p.due_date)%></h4> 
 
-            <h4><u>Tasks:</u> <%= p.tasks.size %></h4>
+                <h4><u>Tasks:</u> <%= p.tasks.size %></h4>
 
-            <%=link_to "Click here to view the project", project_path(p)%>
+                <%=link_to "Click here to view the project", project_path(p)%>
 
-        <% end %>
-    </div>
+            <% end %>
+        </div>
 
 <% end %>
 

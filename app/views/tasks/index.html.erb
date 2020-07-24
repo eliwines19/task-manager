@@ -1,25 +1,7 @@
-<% if @project %>
-  <h1>Tasks for <%= @project.title%></h1>
-<% else %>
-  <h1>All Tasks</h1>
-<% end %> 
+<h1>All Tasks</h1>
 
+<%= link_to 'Tasks Due Soon', tasks_upcoming_dates_path %>
 
-<% @tasks.each do |t|%>
-
-    <h4><u>Task:</u> <%= t.name %></h4> 
-
-    <h4><u>Goal:</u> <%= t.description %></h4> 
-
-    <h4><u>Due:</u> <%= pretty_date(t.due_by)%></h4> 
-
-    <h4>Project: <strong><%= link_to t.project.title, project_path(t.project_id) %></strong> </h4>
-
-    <% if t.user == current_user %>
-      <%= link_to "Edit Task", edit_task_path(t)%>
-    <% end %>
-  <br><br><br>
-  
-<% end %>
+<%= render partial: "tasks", locals: {tasks: @tasks} %>
 
 

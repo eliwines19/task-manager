@@ -7,4 +7,6 @@ class Task < ApplicationRecord
     validates :description, presence: true
     validates :due_by, presence: true 
 
+    scope :upcoming_dates, -> { group('tasks.due_by') }
+
 end

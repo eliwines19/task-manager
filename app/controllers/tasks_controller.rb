@@ -51,6 +51,10 @@ class TasksController < ApplicationController
 
       redirect_to tasks_path
     end
+
+    def upcoming_dates
+      @tasks = Task.upcoming_dates
+    end
  
     private
 
