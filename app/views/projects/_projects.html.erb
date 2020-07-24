@@ -6,8 +6,6 @@
 
     <% projects.each do |p|%> 
 
-        <h1><%=link_to p.title, project_path(p)%> has been completed</h1>
-
         <h1><%=p.title%></h1>
 
         <h4><u>Goal:</u> <%= p.description %></h4> 
