@@ -1,4 +1,8 @@
-<h1>All Tasks</h1>
+<% if @project %>
+  <h1>Tasks for - <%=@project.title%></h1>
+<% else %>
+  <h1>All Tasks</h1>
+<% end %>
 
 <%= link_to 'Tasks Due Soon', tasks_upcoming_dates_path %>
 

@@ -8,7 +8,7 @@ class Project < ApplicationRecord
     validates :description, presence: true 
     validates :due_date, presence: true 
 
-    scope :alpha, -> { order(:title) }
+    scope :most_recent, -> { order("created_at desc") }
     scope :most_tasks, -> { left_joins(:tasks).group('projects.id').order('count(tasks.project_id) desc') }
     scope :upcoming_dates, -> { group('projects.due_date') }
 

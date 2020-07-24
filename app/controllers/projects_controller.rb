@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     end
   
     def index
-      @projects = Project.alpha
+      @projects = Project.most_recent
     end
   
   

@@ -10,7 +10,7 @@ module ProjectsHelper
   
     def display_projects
       if @user.projects.empty?
-        tag.h2(link_to('No projects yet - create a project here', new_project_path))
+        tag.h2("No Projects Yet")
       else
         user = @user == current_user ? 'Your' : "#{@user.name}'s"
         content_tag(:h2, "#{user} #{pluralize(@user.projects.count, 'Project')}:")

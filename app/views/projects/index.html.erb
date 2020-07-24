@@ -1,3 +1,6 @@
 <h1>Projects</h1>
 
+<%= link_to "Most Tasks", projects_most_tasks_path %> |
+<%= link_to "Projects Due soon", projects_upcoming_dates_path %>
+
 <%= render partial: "projects", locals: {projects: @projects} %>
