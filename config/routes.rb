@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/users/projects' => 'users#projects'
   get '/projects/most_tasks' => 'projects#most_tasks'
+  get '/projects/upcoming_dates' => 'projects#upcoming_dates'
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'

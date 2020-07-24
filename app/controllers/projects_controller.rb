@@ -51,7 +51,11 @@ class ProjectsController < ApplicationController
     end
 
     def most_tasks
-      @project = Project.most_tasks
+      @projects = Project.most_tasks
+    end
+
+    def upcoming_dates
+      @projects = Project.upcoming_dates
     end
   
     private

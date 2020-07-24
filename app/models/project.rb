@@ -10,5 +10,6 @@ class Project < ApplicationRecord
 
     scope :alpha, -> { order(:title) }
     scope :most_tasks, -> { left_joins(:tasks).group('projects.id').order('count(tasks.project_id) desc') }
+    scope :upcoming_dates, -> { group('projects.due_date') }
 
 end

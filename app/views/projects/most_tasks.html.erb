@@ -1,11 +1,3 @@
 <h1>Project with the most tasks: ( Highest to Lowest )</h1>
 
-<% if @project.empty? %>
-
-    <h2>No projects yet. Create a project <%= link_to "here", new_project_path%></h2>
-
-<% else %>
-
-    <%= render partial: "projects", locals: {projects: @project} %>
-
-<% end %>
+<%= render partial: "projects", locals: {projects: @projects} %>
