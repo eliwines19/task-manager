@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_project, only: [:edit, :update, :show, :destroy]
+    before_action :redirect_if_not_project_creator, only: [:edit, :update]
 
     def new
       if params[:user_id] && @user = User.find_by_id(params[:user_id])
@@ -24,12 +26,9 @@ class ProjectsController < ApplicationController
     end
   
     def edit
-      @project = Project.find_by_id(params[:id])
-      redirect_to projects_path if !@project || @project.user != current_user
     end
   
     def update
-      @project = Project.find_by(id: params[:id])
       redirect_to projects_path if !@project || @project.user != current_user
       if @project.update(project_params)
         redirect_to project_path(@project)
@@ -39,14 +38,10 @@ class ProjectsController < ApplicationController
     end
   
     def show
-      @project = Project.find_by_id(params[:id])
-      redirect_to projects_path if !@project
     end
 
     def destroy
-      @project = Project.find(params[:id])
       @project.destroy
-    
       redirect_to projects_path
     end
 
@@ -61,7 +56,19 @@ class ProjectsController < ApplicationController
     private
   
     def project_params
-      params.require(:project).permit(:title, :description, :due_date)
+      params.require(:project).permit(:title, :description, :due_date, :completed)
     end
+
+    def set_project
+      @project = Project.find_by_id(params[:id])
+      if !@project
+        flash[:message] = "Task was not found"
+        redirect_to tasks_path
+      end
+    end 
+
+    def redirect_if_not_project_creator
+      redirect_to projects_path if @project.user != current_user
+    end 
 
 end

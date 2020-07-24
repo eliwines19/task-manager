@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_task, only: [:show, :edit, :update]
+    before_action :set_task, only: [:show, :edit, :update, :destroy]
     before_action :redirect_if_not_task_creator, only: [:edit, :update]
 
     def index
@@ -46,9 +46,7 @@ class TasksController < ApplicationController
     end
 
     def destroy
-      @task = Task.find(params[:id])
       @task.destroy
-
       redirect_to tasks_path
     end
 
