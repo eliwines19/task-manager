@@ -4,8 +4,5 @@
 
 <%= render partial: "form", locals: {project: @project}%>
 
-<%= button_to "Delete",
-  project_path(@project),
-  method: :delete
-%>
+<%= button_to "Delete", project_path(@project), method: :delete %>
 

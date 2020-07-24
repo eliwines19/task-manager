@@ -6,19 +6,19 @@
 
     <% projects.each do |p|%> 
 
-        <div>
-            <h1><%=p.title%></h1>
+        <h1><%=link_to p.title, project_path(p)%> has been completed</h1>
 
-                <h4><u>Goal:</u> <%= p.description %></h4> 
+        <h1><%=p.title%></h1>
 
-                <h4><u>Due:</u> <%= pretty_date(p.due_date)%></h4> 
+        <h4><u>Goal:</u> <%= p.description %></h4> 
 
-                <h4><u>Tasks:</u> <%= p.tasks.size %></h4>
+        <h4><u>Due:</u> <%= pretty_date(p.due_date)%></h4> 
 
-                <%=link_to "Click here to view the project", project_path(p)%>
+        <h4><u>Tasks:</u> <%= p.tasks.size %></h4>
 
-            <% end %>
-        </div>
+        <%=link_to "Click here to view the project", project_path(p)%>
+
+    <% end %>
 
 <% end %>
 
