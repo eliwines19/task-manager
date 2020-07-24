@@ -8,7 +8,7 @@ class TasksController < ApplicationController
         @tasks = @project.tasks
       else
         @error = "That project doesn't exist" if params[:project_id]
-        @tasks = Task.most_recent
+        @tasks = Task.by_project
       end
     end
  

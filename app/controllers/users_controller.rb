@@ -20,10 +20,6 @@ class UsersController < ApplicationController
         redirect_to '/' if !@user
     end
 
-    def projects
-        @projects = current_user.projects 
-    end
-
     private 
 
     def user_params

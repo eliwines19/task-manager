@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root "sessions#home"
 
-  get '/users/projects' => 'users#projects'
   get '/projects/most_tasks' => 'projects#most_tasks'
   get '/projects/upcoming_dates' => 'projects#upcoming_dates'
   get '/tasks/upcoming_dates' => 'tasks#upcoming_dates'

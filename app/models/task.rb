@@ -7,7 +7,7 @@ class Task < ApplicationRecord
     validates :description, presence: true
     validates :due_by, presence: true 
 
-    scope :most_recent, -> { order("created_at desc") }
-    scope :upcoming_dates, -> { group('tasks.due_by') }
+    scope :by_project, -> { order('tasks.project_id') }
+    scope :upcoming_dates, -> { order('tasks.due_by') }
 
 end
