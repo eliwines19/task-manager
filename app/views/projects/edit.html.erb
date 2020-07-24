@@ -2,26 +2,10 @@
 
 <%= render partial: "layouts/errors", locals: {object: @project} %>
 
-<%= form_for(@project) do |f|%>
-
-  <%= f.label :title, "Project Title" %><br>
-  <%= f.text_field :title %>
-  <br><br>
-  <%= f.label :description, "Description of the Project" %><br>
-  <%= f.text_area :description %>
-  <br><br>
-  <%= f.label :due_date, "When is the Project Due?" %><br>
-  <%= f.date_field :due_date%>
-  <br><br>
-  <%= f.submit "Edit Project"%>
-
-<% end %>
+<%= render partial: "form", locals: {project: @project}%>
 
 <%= button_to "Delete",
   project_path(@project),
-  method: :delete,
-  data: {
-    confirm: "Are you sure you want to delete this project?"
-  }
+  method: :delete
 %>
 
