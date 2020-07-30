@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails application running on rails version "Rails 6.0.3.2"
 
-Things you may want to cover:
+This is a portfolio project creating during my time with Flatiron School
 
-* Ruby version
+This is a TaskManager application that allows users to create projects and tasks implementing my knowledge of Ruby on Rails and the MVC application structure.
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
