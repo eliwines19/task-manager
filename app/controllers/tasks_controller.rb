@@ -13,7 +13,6 @@ class TasksController < ApplicationController
     end
  
     def new
-      #if it's nested and why find the post
       if params[:project_id] && @project = Project.find_by_id(params[:project_id])
         @task = @project.tasks.build
       else
