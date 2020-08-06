@@ -62,8 +62,8 @@ class ProjectsController < ApplicationController
     def set_project
       @project = Project.find_by_id(params[:id])
       if !@project
-        flash[:message] = "Task was not found"
-        redirect_to tasks_path
+        flash[:message] = "Project was not found"
+        redirect_to projects_path
       end
     end 
 
