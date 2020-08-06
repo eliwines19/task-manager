@@ -5,7 +5,7 @@ class TasksController < ApplicationController
 
     def index
       if params[:project_id] && @project = Project.find_by_id(params[:project_id])
-        @tasks = @project.tasks
+        @tasks = @project.tasks.recently_created
       else
         @error = "That project doesn't exist" if params[:project_id]
         @tasks = Task.recently_created
