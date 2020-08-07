@@ -17,7 +17,8 @@ class TasksController < ApplicationController
 
           @error = "That project doesn't exist" if params[:project_id]
           if params[:search]
-            @tasks = Task.where(name: params[:search])
+            @tasks = Task.where("name like ?", "%#{params[:search]}%")
+            
             render :index
           else
             @tasks = Task.recently_created
