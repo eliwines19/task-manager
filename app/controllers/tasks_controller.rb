@@ -6,23 +6,23 @@ class TasksController < ApplicationController
     def index
       if params[:project_id] && @project = Project.find_by_id(params[:project_id])
 
-        if params[:search]
-          @tasks = Task.where(name: params[:search], project_id: @project.id)
-          render :index
-        else
-          @tasks = @project.tasks.recently_created
-        end
+          if params[:search]
+            @tasks = Task.where(name: params[:search], project_id: @project.id)
+            render :index
+          else
+            @tasks = @project.tasks.recently_created
+          end
 
       else
 
-        @error = "That project doesn't exist" if params[:project_id]
-        if params[:search]
-          @tasks = Task.where(name: params[:search])
-          render :index
-        else
-          @tasks = Task.recently_created
-        end
-        
+          @error = "That project doesn't exist" if params[:project_id]
+          if params[:search]
+            @tasks = Task.where(name: params[:search])
+            render :index
+          else
+            @tasks = Task.recently_created
+          end
+
       end
     end
  
