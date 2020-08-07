@@ -5,10 +5,20 @@ class TasksController < ApplicationController
 
     def index
       if params[:project_id] && @project = Project.find_by_id(params[:project_id])
-        @tasks = @project.tasks.recently_created
+        if params[:search]
+          @tasks = Task.where(name: params[:search], project_id: @project.id)
+          render :index
+        else
+          @tasks = @project.tasks.recently_created
+        end
       else
         @error = "That project doesn't exist" if params[:project_id]
-        @tasks = Task.recently_created
+        if params[:search]
+          @tasks = Task.where(name: params[:search])
+          render :index
+        else
+          @tasks = Task.recently_created
+        end
       end
     end
  
@@ -56,7 +66,7 @@ class TasksController < ApplicationController
     private
 
     def task_params
-      params.require(:task).permit(:name, :description, :due_by, :project_id)
+      params.require(:task).permit(:name, :description, :due_by, :project_id, :search)
     end
 
     def set_task

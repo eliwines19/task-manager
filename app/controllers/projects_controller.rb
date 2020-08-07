@@ -15,9 +15,9 @@ class ProjectsController < ApplicationController
       @projects = Project.most_recent
     end
   
-  
     def create
-      @project = current_user.projects.build(project_params)
+      @project = Project.new(project_params)
+      @project.user_id = current_user.id
       if @project.save
         redirect_to projects_path
       else
