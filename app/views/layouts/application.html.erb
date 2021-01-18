@@ -2,21 +2,114 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      body {
+        background: gray;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      a:active {
+        background: black;
+        color: white;
+      }
+
+      a:link {
+        background: black;
+        color: white;
+      }
+
+      a:visited {
+        background: black;
+        color: white;
+      }
+
+      a:hover {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .card-container {
+        background: white;
+      }
+
+      .card {
+        padding: 10px;
+        border-bottom: solid 1px black;
+      }
+
+      .card h4 {
+        margin-left: 10px;
+      }
+
+      h1 {
+        color: white;
+        padding: 3px;
+        border-bottom: 3px solid black;
+      }
+
+      #username {
+        margin-top: 0;
+      }
+
+      #username a {
+        color: black;
+        background: white;
+      }
+
+      .sidenav {
+        height: 100%;
+        width: 160px;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+
+      .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+      }
+
+      .sidenav a:hover {
+        color: #f1f1f1;
+        border-left: solid 1px white;
+      }
+
+      form {
+        padding: 10px;
+      }
+
+      .main {
+        margin-left: 160px;
+        padding: 10px;
+      }
+    </style>
     <title>Task Manager</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
   </head>
 
-  <body style=" background-color:#ddd; padding:10px; text-align:center; ">
+  <body>
 
-    <div>
+    <div class="sidenav">
       <% if logged_in?%>
-        <%= link_to "All Projects", projects_path %> |
-        <%= link_to "Add Project", new_project_path %> |
-        <%= link_to "All Tasks", tasks_path %> |
-        <%= link_to "Add a Task", new_task_path %> | 
-        <%= link_to "Home", user_path(current_user)%> |
+        <h3 id="username"><%= link_to current_user.name, user_path(current_user)%></h3>
+        <%= link_to "All Projects", projects_path %>
+        <%= link_to "Add Project", new_project_path %>
+        <%= link_to "All Tasks", tasks_path %>
+        <%= link_to "Add a Task", new_task_path %>
+        <br />
+        <%= link_to "Home", user_path(current_user)%>
         <%= link_to "Logout", logout_path, method:"delete"%>
 
       <% else %>

@@ -1,26 +1,28 @@
-<h1>Edit Task: <%= @task.name%></h1>
+<div class="main">
+  <h1>Edit Task: <%= @task.name%></h1>
 
-<%= render partial: "layouts/errors", locals: {object: @task} %>
+  <%= render partial: "layouts/errors", locals: {object: @task} %>
 
-<%= form_for(@task) do |f|%>
+  <%= form_for(@task) do |f|%>
 
-  <%= f.label :project, "Project Name"%>
-  <%= f.collection_select :project_id, Project.all, :id, :title %>
-  <br><br>
-  <%= f.label :name, "Task Name" %><br>
-  <%= f.text_field :name %>
-  <br><br>
-  <%= f.label :description, "Description of the Task" %><br>
-  <%= f.text_area :description %>
-  <br><br>
-  <%= f.label :due_by, "When is the task due?" %><br>
-  <%= f.date_field :due_by %>
-  <br><br>
-  <%= f.submit "Edit Task" %>
+    <%= f.label :project, "Project Name"%>
+    <%= f.collection_select :project_id, Project.all, :id, :title %>
+    <br><br>
+    <%= f.label :name, "Task Name" %><br>
+    <%= f.text_field :name %>
+    <br><br>
+    <%= f.label :description, "Description of the Task" %><br>
+    <%= f.text_area :description %>
+    <br><br>
+    <%= f.label :due_by, "When is the task due?" %><br>
+    <%= f.date_field :due_by %>
+    <br><br>
+    <%= f.submit "Edit Task" %>
 
-<% end %>
+  <% end %>
 
-<%= button_to "Delete",
-  task_path(@task),
-  method: :delete
-%>
+  <%= button_to "Delete",
+    task_path(@task),
+    method: :delete
+  %>
+</div>

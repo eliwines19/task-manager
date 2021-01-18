@@ -1,5 +1,7 @@
-<h1>Project with the most tasks: ( Highest to Lowest )</h1>
+<div class="main">
+    <h1>Project with the most tasks: ( Highest to Lowest )</h1>
 
-<%= link_to "Projects Due soon", projects_upcoming_dates_path %>
+    <%= link_to "Projects Due soon", projects_upcoming_dates_path %>
 
-<%= render partial: "projects", locals: {projects: @projects} %>
+    <%= render partial: "projects", locals: {projects: @projects} %>
+</div>

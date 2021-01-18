@@ -1,23 +1,25 @@
-<h1><%=@project.title%></h1>
+<div class="main">
+    <h1><%=@project.title%></h1>
 
-<h4>Project Created By: <%=@project.user.name%> </h4>
+    <h4>Project Created By: <%=@project.user.name%> </h4>
 
-<div>
-    <strong>Project Description:</strong><br>
-    <%=@project.description%>
+    <div>
+        <strong>Project Description:</strong><br>
+        <%=@project.description%>
+    </div>
+
+    <br>
+
+    <div>
+        <strong>Project Due Date:</strong><br>
+        <%=pretty_date(@project.due_date)%>
+    </div>
+
+    <% if @project.user == current_user %>
+        <h4><%= link_to "Edit Project", edit_project_path(@project)%></h4>
+    <% end %>
+
+    <p><%= link_to 'Add a new task', new_project_task_path(@project) %></p>
+
+    <p><%= link_to 'See all tasks', project_tasks_path(@project) if !@project.tasks.empty? %></p>
 </div>
-
-<br>
-
-<div>
-    <strong>Project Due Date:</strong><br>
-    <%=pretty_date(@project.due_date)%>
-</div>
-
-<% if @project.user == current_user %>
-    <h4><%= link_to "Edit Project", edit_project_path(@project)%></h4>
-<% end %>
-
-<p><%= link_to 'Add a new task', new_project_task_path(@project) %></p>
-
-<p><%= link_to 'See all tasks', project_tasks_path(@project) if !@project.tasks.empty? %></p>

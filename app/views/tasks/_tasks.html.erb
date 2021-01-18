@@ -1,16 +1,24 @@
+<div class="card-container">
+
   <% tasks.each do |t|%>
 
-    <h4><u>Task:</u> <%= t.name %></h4> 
+    <div class="card">
 
-    <h4><u>Goal:</u> <%= t.description %></h4> 
+      <h2><u>Task:</u> <%= t.name %></h2> 
 
-    <h4><u>Due:</u> <%= pretty_date(t.due_by)%></h4> 
+      <h4><u>Goal:</u> <%= t.description %></h4> 
 
-    <h4>Project: <strong><%= link_to t.project.title, project_path(t.project_id) %></strong> </h4>
+      <h4><u>Due:</u> <%= pretty_date(t.due_by)%></h4> 
 
-    <% if t.user == current_user %>
+      <h4>Project: <strong><%= link_to t.project.title, project_path(t.project_id) %></strong> </h4>
+
+      <% if t.user == current_user %>
       <%= link_to "Edit Task", edit_task_path(t)%>
-    <% end %>
-  <br><br><br>
+      <% end %>
+    
+    </div>
+    
+  <% end %>
+
+</div>
   
-<% end %>

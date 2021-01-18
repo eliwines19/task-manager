@@ -1,8 +1,11 @@
-<h1>Edit <%= @project.title%></h1>
+<div class="main">
 
-<%= render partial: "layouts/errors", locals: {object: @project} %>
+    <h1>Edit <%= @project.title%></h1>
 
-<%= render partial: "form", locals: {project: @project}%>
+    <%= render partial: "layouts/errors", locals: {object: @project} %>
 
-<%= button_to "Delete", project_path(@project), method: :delete %>
+    <%= render partial: "form", locals: {project: @project}%>
 
+    <%= button_to "Delete", project_path(@project), method: :delete %>
+
+</div>

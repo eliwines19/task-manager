@@ -1,32 +1,34 @@
-<% if @task.project %>
-    <h1>New Task for - <%= @task.project.title%></h1>
-<% else %>
-    <h1>New Task</h1>
-<% end %>
-
-
-
-<%= render partial: "layouts/errors", locals: {object: @task} %>
-
-<%= form_for([@task.project,@task]) do |f|%>
-
-    <% if !@task.project %>
-        <%= f.label :project %>
-        <%= f.collection_select :project_id, Project.all, :id, :title %>
+<div class="main">
+    <% if @task.project %>
+        <h1>New Task for - <%= @task.project.title%></h1>
     <% else %>
-        <%= f.hidden_field :project_id %>
-        Project Due Date: <%= pretty_date(@task.project.due_date)%>
+        <h1>New Task</h1>
     <% end %>
-        <br><br>
-        <%= f.label :name, "Name of task" %><br>
-        <%= f.text_field :name %>
-        <br><br>
-        <%= f.label :description, "Description of the Task " %><br>
-        <%= f.text_area :description %>
-        <br><br>
-        <%= f.label :due_by, "When is the Task Due?" %><br>
-        <%= f.date_field :due_by %>
-        <br><br>
-        <%= f.submit "Create Task"%>
 
-<% end %>
+
+
+    <%= render partial: "layouts/errors", locals: {object: @task} %>
+
+    <%= form_for([@task.project,@task]) do |f|%>
+
+        <% if !@task.project %>
+            <%= f.label :project %>
+            <%= f.collection_select :project_id, Project.all, :id, :title %>
+        <% else %>
+            <%= f.hidden_field :project_id %>
+            Project Due Date: <%= pretty_date(@task.project.due_date)%>
+        <% end %>
+            <br><br>
+            <%= f.label :name, "Name of task" %><br>
+            <%= f.text_field :name %>
+            <br><br>
+            <%= f.label :description, "Description of the Task " %><br>
+            <%= f.text_area :description %>
+            <br><br>
+            <%= f.label :due_by, "When is the Task Due?" %><br>
+            <%= f.date_field :due_by %>
+            <br><br>
+            <%= f.submit "Create Task"%>
+
+    <% end %>
+</div>

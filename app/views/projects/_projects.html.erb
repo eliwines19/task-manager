@@ -1,22 +1,30 @@
-<% if projects.empty? %>
+<div class="card-container">
 
-    <h2>No projects yet. Create a project <%= link_to "here", new_project_path%></h2>
+    <% if projects.empty? %>
 
-<% else %>
+        <h2>No projects yet. Create a project <%= link_to "here", new_project_path%></h2>
 
-    <% projects.each do |p|%> 
+    <% else %> 
 
-        <h1><%=p.title%></h1>
+        <% projects.each do |p|%> 
 
-        <h4><u>Goal:</u> <%= p.description %></h4> 
+            <div class="card">
 
-        <h4><u>Due:</u> <%= pretty_date(p.due_date)%></h4> 
+                <h2><%=p.title%></h2>
 
-        <h4><u>Tasks:</u> <%= p.tasks.size %></h4>
+                <h4><u>Goal:</u> <%= p.description %></h4> 
 
-        <%=link_to "Click here to view the project", project_path(p)%>
+                <h4><u>Due:</u> <%= pretty_date(p.due_date)%></h4> 
+
+                <h4><u>Tasks:</u> <%= p.tasks.size %></h4>
+
+                <%=link_to "Click here to view the project", project_path(p)%>
+
+            </div>
+
+        <% end %>
 
     <% end %>
 
-<% end %>
+</div>
 

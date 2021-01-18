@@ -1,19 +1,21 @@
-<% if @project %>
+<div class="main">
+    <% if @project %>
 
-    <h1>Tasks for - <%=@project.title%></h1>
+        <h1>Tasks for - <%=@project.title%></h1>
 
-    <%= render partial: "search_form", locals: { url_path: project_tasks_path(@project) } %>
+        <%= render partial: "search_form", locals: { url_path: project_tasks_path(@project) } %>
 
-<% else %>
+    <% else %>
 
-    <h1>All Tasks</h1>
+        <h1>All Tasks</h1>
 
-    <%= render partial: "search_form", locals: { url_path: tasks_path } %>
+        <%= render partial: "search_form", locals: { url_path: tasks_path } %>
 
-<% end %>
+    <% end %>
 
-<%= link_to 'Tasks Due Soon', tasks_upcoming_dates_path %>
+    <%= link_to 'Tasks Due Soon', tasks_upcoming_dates_path %>
 
-<%= render partial: "tasks", locals: { tasks: @tasks } %>
+    <%= render partial: "tasks", locals: { tasks: @tasks } %>
 
+</div>
 

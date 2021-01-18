@@ -1,8 +1,12 @@
-<h1>Welcome to TaskManager <%=@user.name if @user%></h1>
+<div class="main">
 
-<%= display_projects if @user%>
+    <h1>Welcome to TaskManager <%=@user.name if @user%></h1>
 
-<%= render partial: "projects/projects", locals: {projects: @user.projects} if @user%>
+    <%= display_projects if @user%>
+
+    <%= render partial: "projects/projects", locals: {projects: @user.projects} if @user%>
+
+</div>
 
 
 
